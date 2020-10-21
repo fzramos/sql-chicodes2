@@ -1,10 +1,21 @@
 CREATE TABLE "customer" (
   "customer_id" SERIAL,
-  "ticket_id" INTEGER,
   "first_name" VARCHAR(100),
   "last_name" VARCHAR(100),
-  "snacks_purchase_id" INTEGER,
   PRIMARY KEY ("customer_id")
+);
+
+CREATE TABLE "movie" (
+  "movie_id" SERIAL,
+  "length" INTEGER,
+  PRIMARY KEY ("movie_id")
+);
+
+CREATE TABLE "concession" (
+  "concession_id" SERIAL,
+  "name" VARCHAR(100),
+  "price" NUMERIC(3,2),
+  PRIMARY KEY ("concession_id")
 );
 
 CREATE TABLE "ticket" (
@@ -22,27 +33,12 @@ CREATE TABLE "inventory" (
   PRIMARY KEY ("inventory_id")
 );
 
-CREATE TABLE "movie" (
-  "movie_id" SERIAL,
-  "showing_id" INTEGER,
-  "length" INTEGER,
-  PRIMARY KEY ("movie_id")
-);
-
 CREATE TABLE "snacks_purchase" (
   "snacks_purchase_id" SERIAL,
   "customer_id" INTEGER,
   "inventory_id" INTEGER,
   "price" NUMERIC(3,2),
   PRIMARY KEY ("snacks_purchase_id")
-);
-
-CREATE TABLE "concession" (
-  "concession_id" SERIAL,
-  "name" VARCHAR(100),
-  "price" NUMERIC(3,2),
-  "inventory_id" INTEGER,
-  PRIMARY KEY ("concession_id")
 );
 
 CREATE TABLE "showing" (
@@ -52,3 +48,4 @@ CREATE TABLE "showing" (
   "time" DATE,
   PRIMARY KEY ("showing_id")
 );
+
