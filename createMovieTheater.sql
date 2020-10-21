@@ -2,18 +2,19 @@ CREATE TABLE "customer" (
 	"customer_id" SERIAL,
 	"first_name" VARCHAR(100),
 	"last_name" VARCHAR(100),
+	billing_info VARCHAR(100);
 	PRIMARY KEY ("customer_id")
 );
 
 CREATE TABLE "movie" (
 	"movie_id" SERIAL,
-	"length" INTEGER,
+	"runtime" INTEGER,
 	PRIMARY KEY ("movie_id")
 );
 
 CREATE TABLE "concession" (
 	"concession_id" SERIAL,
-	"name" VARCHAR(100),
+	"title" VARCHAR(100),
 	"price" NUMERIC(3,2),
 	PRIMARY KEY ("concession_id")
 );
@@ -31,7 +32,7 @@ CREATE TABLE "ticket" (
 	"ticket_id" SERIAL,
 	"showing_id" INTEGER NOT NULL,
 	"customer_id" INTEGER NOT NULL,
-	"cost" NUMERIC(3,2),
+	"price" NUMERIC(3,2),
 	PRIMARY KEY ("ticket_id"),
 	FOREIGN KEY(showing_id) REFERENCES showing(showing_id),
 	FOREIGN KEY(customer_id) REFERENCES customer(customer_id)
